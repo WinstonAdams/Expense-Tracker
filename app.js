@@ -12,6 +12,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 //* 載入自己設定的檔案
 const routes = require('./routes')
+require('./config/mongoose')
 
 const app = express()
 const PORT = process.env.PORT
