@@ -45,9 +45,9 @@ const RECORD = [
 ]
 
 db.once('open', async () => {
-  const categories = await Category.find().lean()
+  const categoryList = await Category.find().lean()
   let recordSeed = RECORD.map(record => {
-    const category = categories.find(category => { return category.name === record.category })
+    const category = categoryList.find(category => { return category.name === record.category })
     record.CategoryId = category._id
     delete record.category
     return record
