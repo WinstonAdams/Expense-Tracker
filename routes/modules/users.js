@@ -30,6 +30,10 @@ router.get('/logout', (req, res) => {
   res.redirect('/users/login')
 })
 
+router.get('/register', (req, res) => {
+  res.render('register')
+})
+
 router.post('/register', (req, res) => {
   const { name, email, password, confirmPassword } = req.body
   const errors = []
