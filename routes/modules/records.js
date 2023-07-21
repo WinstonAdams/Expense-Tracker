@@ -97,4 +97,18 @@ router.put('/:id', async (req, res) => {
     })
 })
 
+// 刪除
+router.delete('/:id', (req, res) => {
+  const _id = req.params.id
+  const UserId = req.user._id
+
+  Record.findOne({ _id, UserId })
+    .then(record => record.deleteOne())
+    .then(() => res.redirect('/'))
+    .catch(error => {
+      console.log(error)
+      res.render('errorPage', { errorMsg: error.message })
+    })
+})
+
 module.exports = router
