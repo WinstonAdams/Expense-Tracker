@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
       const recordList = records.map(record => {
         const category = categoryList.find(category => { return category._id.toString() === record.CategoryId.toString() })
         record.icon = category.icon
-        record.date = record.date.toLocaleString()
+        record.date = record.date.toLocaleString('zh-CN', { year: 'numeric', month: 'numeric', day: 'numeric' })
         return record
       })
 
