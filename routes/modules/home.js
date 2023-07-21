@@ -52,7 +52,7 @@ router.get('/filter', (req, res) => {
         .then(records => {
           const recordList = records.map(record => {
             record.icon = category.icon
-            record.date = record.date.toLocaleString('zCNh-', { year: 'numeric', month: 'numeric', day: 'numeric' })
+            record.date = record.date.toLocaleString('zh-CN', { year: 'numeric', month: 'numeric', day: 'numeric' })
             return record
           })
 
