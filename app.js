@@ -20,7 +20,12 @@ const PORT = process.env.PORT
 
 app.engine('hbs', exphbs({
   defaultLayout: 'main',
-  extname: 'hbs'
+  extname: 'hbs',
+  helpers: {
+    equal: (value1, value2) => {
+      return value1 === value2
+    }
+  }
 }))
 app.set('view engine', 'hbs')
 
