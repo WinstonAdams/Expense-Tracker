@@ -13,6 +13,7 @@ router.get('/', async (req, res) => {
     .lean()
     .then(records => {
       const recordList = records.map(record => {
+        //? 為何 category._id 不完全等於 record.CategoryId
         const category = categoryList.find(category => { return category._id.toString() === record.CategoryId.toString() })
         record.icon = category.icon
         record.date = record.date.toLocaleString('zh-CN', { year: 'numeric', month: 'numeric', day: 'numeric' })
@@ -35,6 +36,10 @@ router.get('/', async (req, res) => {
 router.get('/filter', (req, res) => {
   const categoryFiltered = req.query.category
   const UserId = req.user._id
+
+  if (categoryFiltered === '類別') {
+    return res.redirect('/')
+  }
 
   Category.findOne({ name: categoryFiltered })
     .lean()

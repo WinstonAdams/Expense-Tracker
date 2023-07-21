@@ -2,7 +2,7 @@
   <form action="/filter" id="filter">
     <div class="input-group w-50 m-auto">
       <select class="form-select" id="category" name="category">
-        <option>類別</option>
+        <option value="類別">類別</option>
         <option value="家居物業" {{#if (equal categoryFiltered "家居物業" )}}selected{{/if}}>家居物業</option>
         <option value="交通出行" {{#if (equal categoryFiltered "交通出行" )}}selected{{/if}}>交通出行</option>
         <option value="休閒娛樂" {{#if (equal categoryFiltered "休閒娛樂" )}}selected{{/if}}>休閒娛樂</option>
